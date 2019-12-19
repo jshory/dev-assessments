@@ -11,11 +11,21 @@
  *
  * @returns  {Object[]}
  */
+
+// Load JSON file w/ simpsons character data
+const simpsonsCharacters = require('./test_data.json');
+
 module.exports = function test2() {
   let results;
 
   // Write your code here.  The pre-written lines above and below are just suggestions, feel free to delete
   // them and start fresh.
+
+  // Create new array w/ additional property: "example", filtering elements to only return Simpson family members
+  results = simpsonsCharacters.filter(character => character.last_name === 'Simpson').map(character => ({
+    ...character,
+    example: character.first_name + ' ' + character.last_name + ' says ' + character.catchphrase
+  }));
 
   return results;
 };
